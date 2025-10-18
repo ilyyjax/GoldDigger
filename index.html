@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GoldDigger</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game-root">
+    <!-- Top bar -->
+    <header id="topbar">
+      <div id="title">GoldDigger</div>
+      <div id="top-controls">
+        <div class="control" id="money-display">💰 0</div>
+        <div class="control" id="energy-display">⛽ <div id="energy-bar"><div id="energy-fill"></div></div></div>
+        <button class="pixel-btn" id="shop-btn" title="Open Shop">🔨 Upgrade Tools</button>
+        <button class="pixel-btn" id="mute-btn" title="Mute / Unmute">🔊</button>
+      </div>
+    </header>
+
+    <!-- Main game area -->
+    <main id="main-area">
+      <div id="left-panel">
+        <canvas id="game-canvas" width="480" height="640"></canvas>
+        <div id="surface-label">SURFACE - SELL HERE</div>
+        <div id="sell-controls">
+          <button class="pixel-btn big" id="sell-btn">Sell All</button>
+        </div>
+      </div>
+
+      <aside id="ui-panel">
+        <section class="card" id="inventory-card">
+          <h3>Inventory</h3>
+          <div id="inventory-list">
+            <!-- inventory items injected here -->
+          </div>
+          <div id="inventory-cap">Capacity: <span id="cap-val">0/50</span></div>
+        </section>
+
+        <section class="card" id="upgrades-card">
+          <h3>Upgrades</h3>
+          <div id="upgrades-list">
+            <!-- upgrades injected here -->
+          </div>
+        </section>
+
+        <section class="card" id="actions-card">
+          <button class="pixel-btn" id="save-btn">Save</button>
+          <button class="pixel-btn" id="reset-btn">Reset Save</button>
+        </section>
+
+        <section class="card small" id="controls-card">
+          <h4>Controls</h4>
+          <p>← → or A D to move</p>
+          <p>↓ or S to drop down</p>
+          <p>Space / Click to mine adjacent block</p>
+        </section>
+      </aside>
+    </main>
+
+    <!-- Popups/notifications -->
+    <div id="popups"></div>
+
+    <!-- Shop modal -->
+    <div id="shop-modal" class="modal hidden">
+      <div class="modal-content">
+        <button class="close" id="shop-close">✖</button>
+        <h2>Shop & Upgrades</h2>
+        <div id="shop-upgrade-list"></div>
+      </div>
+    </div>
+
+    <!-- Title / continue / reset overlay (optional) -->
+    <div id="title-screen" class="overlay hidden">
+      <div class="box">
+        <h1>GoldDigger</h1>
+        <div class="buttons">
+          <button class="pixel-btn" id="start-btn">Start Game</button>
+          <button class="pixel-btn" id="continue-btn">Continue</button>
+          <button class="pixel-btn" id="reset-save-btn">Reset Save</button>
+        </div>
+      </div>
+    </div>
+
+    <footer id="footer">
+      <small>GoldDigger — Retro mining arcade • Save auto-loads</small>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
